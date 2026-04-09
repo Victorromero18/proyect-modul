@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Información Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <img src="logo-universidad.png" alt="Logo Universidad" class="header-img">
+        <div class="header-title">
+            Módulo de Información Escolar de Alumnos de Licenciatura<br>
+            <span class="header-subtitle">Subsistema de Administración Escolar</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <div class="unit-name"><img src="unidad_cua.png" alt="Unidad CUA" class="unit-image"></div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="cuenta">Cuenta</label>
+                    <input type="text" id="cuenta" placeholder="Matrícula">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="Contraseña">
+                </div>
+                <button type="submit" class="btn-entrar">Entrar</button>
+            </form>
+            
+            <a href="#" class="forgot-link">¿Olvidaste tu Contraseña?</a>
+            
+            <div class="help-message">
+                <p class="help-title">Si olvidó su cuenta y/o contraseña o aún no cuenta con ellas, solicítelas en la Coordinación de Sistemas Escolares de su Unidad</p>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="welcome-section">
+                <p class="module-title">Módulo de Información Escolar de Alumnos de Licenciatura</p>
+                <h1 class="welcome-title">¡BIENVENIDO!</h1>
+                <p class="period-title">Trimestre Lectivo 26I</p>
+            </div>
+
+            <div class="notice-box">
+                <h2 class="notice-title">AVISO IMPORTANTE</h2>
+                <p class="notice-text">
+                    El Módulo de Información Escolar para los alumnos de la Universidad Autónoma Metropolitana al cual puedes acceder desde la página institucional es el único medio para effectinguir trámites escolares vía Web de acuerdo a instructivos, a partir de ahora las consultas de información sobre tus datos académicos, escolares y otros las puedes realizar mediante dispositivos móviles.
+                </p>
+                <p class="notice-text">
+                    Considerando que la seguridad de tus datos académicos y personales es muy importante no debes proporcionar tu usuario y contraseña a cualquier otro medio electrónico diferente al Módulo de Información Escolar y a la aplicación movil oficial AppUAM (aplicación para dispositivos móviles) puesto que la Universidad Autónoma Metropolitana únicamente ha liberado estas dos aplicaciones para estos fines. Para conocer más sobre la aplicación móvil puedes acceder al siguiente link AppUAM.
+                </p>
+                <p class="notice-text text-center">
+                    <strong>Atentamente</strong><br>
+                    Dirección de Sistemas Escolares<br>
+                    Rectoría General
+                </p>
+            </div>
+
+            <div class="scholarship-bar">
+                BECAS - UAM
+            </div>
+
+            <div class="scholarship-section">
+                <img src="beca-modulo.png" alt="Becas UAM" class="beca-image">
+                <div class="scholarship-info">
+                    <p>
+                        LA UNIVERSIDAD AUTÓNOMA METROPOLITANA, POR CONDUCTO DE SU RECTOR GENERAL
+                    </p>
+                    <p>
+                        CONVOCA A LOS ALUMNOS Y ALUMNAS DE LICENCIATURA DE ESTA UNIVERSIDAD PARA PARTICIPAR EN EL PROGRAMA DE BECAS
+                    </p>
+                    <p>
+                        Presiona la siguiente liga URL para mayor información: 
+                        <a href="https://becas.uam.mx/index.html" class="scholarship-link" target="_blank">
+                            https://becas.uam.mx/index.html
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>Coordinación de Sistemas Escolares | soporte@universidadficticia.edu</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

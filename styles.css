@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a;
+}
+
+/* Header */
+.header {
+    background: #1a1a1a;
+    color: white;
+    padding: 5px 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+    border-radius: 5px;
+    display: block;
+}
+
+.header-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.header-subtitle {
+    font-size: 13px;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: white;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #ddd;
+}
+
+.unit-name {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.unit-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #555;
+    font-weight: 600;
+}
+
+.form-group input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #666;
+}
+
+.btn-entrar {
+    background: #666;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.btn-entrar:hover {
+    background: #555;
+}
+
+.forgot-link {
+    color: #666;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+.help-message {
+    background: #fff0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.help-title {
+    color: #c00;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.help-message p {
+    color: #666;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.module-title {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.welcome-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.period-title {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Notice Box */
+.notice-box {
+    background: #e8f4fd;
+    border: 1px solid #b8d4e8;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.notice-title {
+    color: #1a5276;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.notice-text {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.notice-text.text-center {
+    text-align: center;
+}
+
+.btn-portal {
+    display: block;
+    margin: 20px auto 0;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-portal:hover {
+    background: #8e44ad;
+}
+
+/* Scholarship Bar */
+.scholarship-bar {
+    background: #1abc9c;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.scholarship-section {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.scholarship-info p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.scholarship-link {
+    color: #3498db;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.scholarship-link:hover {
+    text-decoration: underline;
+}
+
+.scholarship-section {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.beca-image {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+/* Footer */
+.footer {
+    background: #f5f5f5;
+    padding: 15px 30px;
+    border-top: 1px solid #ddd;
+}
+
+.footer p {
+    color: #666;
+    font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+    }
+    
+    .header-title {
+        font-size: 12px;
+    }
+    
+    .scholarship-section {
+        flex-direction: column;
+    }
+}

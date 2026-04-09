@@ -1,0 +1,161 @@
+/* Sidebar Login */
+.sidebar-login {
+    text-align: center;
+    padding: 15px;
+    background: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+}
+
+.logo-uam {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(145deg, #2ecc71, #27ae60);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.logo-uam span {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sidebar-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* User Section */
+.user-section {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 3px;
+}
+
+.user-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 10px 0;
+    flex: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    gap: 12px;
+    font-size: 13px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.menu-item:hover {
+    background: #f5f5f5;
+}
+
+.menu-item.active {
+    background: #e8f5e9;
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.menu-item.logout {
+    border-top: 2px solid #ddd;
+    margin-top: 20px;
+    color: #e74c3c;
+}
+
+.menu-icon {
+    width: 28px;
+    height: 28px;
+    background: #666;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.menu-icon.home-icon {
+    background: #2ecc71;
+}
+
+.menu-icon.logout-icon {
+    background: #e74c3c;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.dashboard-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.card-icon.blue { background: #3498db; }
+.card-icon.green { background: #2ecc71; }
+.card-icon.orange { background: #e67e22; }
+.card-icon.purple { background: #9b59b6; }
+.card-icon.red { background: #e74c3c; }
+.card-icon.teal { background: #1abc9c; }
+.card-icon.yellow { background: #f1c40f; }
+
+.card-info h3 {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    font-size: 12px;
+    color: #666;
+}

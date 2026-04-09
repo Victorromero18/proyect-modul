@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Escolar - Cuajimalpa</title>
+    <link rel="stylesheet" href="sistema.css">
+</head>
+<body>
+    <header class="header">
+        <img src="logo-universidad.png" alt="Logo Universidad" class="header-img">
+        <div class="header-title">
+            Módulo de Información Escolar de Alumnos de Licenciatura<br>
+            <span class="header-subtitle">Subsistema de Administración Escolar</span>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="campus-title">Cuajimalpa</h1>
+                <div class="account-box">
+                    Cuenta: 2203024222
+                </div>
+            </div>
+
+            <nav class="menu">
+                <a href="#" class="menu-item" data-page="horario">Horario</a>
+                <a href="#" class="menu-item" data-page="kardex">Kardex</a>
+                <a href="#" class="menu-item" data-page="pagos">Pagos</a>
+                <a href="#" class="menu-item" data-page="cartas">Cartas</a>
+                <a href="#" class="menu-item" data-page="info-personal">Información Personal</a>
+                <a href="#" class="menu-item" data-page="info-academica">Información Académica</a>
+                <a href="#" class="menu-item" data-page="linea-captura">Línea de Captura</a>
+                <a href="#" class="menu-item" data-page="hoja-inscripcion">Hoja de Inscripción</a>
+                <a href="#" class="menu-item" data-page="comprobante">Comprobante de Inscripción / Reinscripción</a>
+                <a href="#" class="menu-item">Encuestas</a>
+                <a href="#" class="menu-item">Hoja de Inscripción Nuevo Ingreso</a>
+                <a href="#" class="menu-item">Bajas a Inscripción de Cursos de Lenguas</a>
+                <a href="#" class="menu-item">Tiempo de Permanencia</a>
+                <a href="#" class="menu-item">Cambiar Contraseña</a>
+                <a href="index.html" class="menu-item logout" onclick="sessionStorage.clear(); window.location.href='index.html'; return false;">Terminar Sesión</a>
+            </nav>
+
+            <footer class="sidebar-footer">
+                <p>Coordinación de Sistemas Escolares</p>
+                <p>ccse@correo.cua.uam.mx</p>
+                <p class="ddsae">Tecnologías de la Información - DDSAE</p>
+            </footer>
+        </aside>
+
+        <main class="main-area">
+            <header class="main-header">
+                <h2>Avisos</h2>
+            </header>
+
+            <div class="content-area">
+                <div class="avisos-container" id="contentContainer">
+                    <!-- Contenido dinámico -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="sistema.js"></script>
+</body>
+</html>
