@@ -1155,6 +1155,226 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
             }
+
+            if (page === 'hoja-nuevo-ingreso') {
+                mainHeader.textContent = 'TRIMESTRE ACTUAL 26I';
+                contentContainer.innerHTML = `
+                    <div class="page-content">
+                        <div class="header-with-toggle">
+                            <button class="btn-toggle">Ocultar Datos Académicos</button>
+                        </div>
+
+                        <div class="datos-alumno-section">
+                            <div class="datos-grid">
+                                <div class="dato-item"><strong>Apellido Paterno:</strong> ROMERO</div>
+                                <div class="dato-item"><strong>Apellido Materno:</strong> PEREZ</div>
+                                <div class="dato-item"><strong>Nombre(s):</strong> VICTOR MIGUEL</div>
+                                <div class="dato-item"><strong>Estado:</strong> NO REINSCRITO</div>
+                                <div class="dato-item"><strong>Nacionalidad:</strong> MEXICANA</div>
+                                <div class="dato-item"><strong>Unidad:</strong> CUAJIMALPA</div>
+                                <div class="dato-item"><strong>Trimestre de ingreso:</strong> 200</div>
+                                <div class="dato-item"><strong>Trimestre de reinscripción:</strong> 26I</div>
+                                <div class="dato-item full-width"><strong>Plan de Estudios:</strong> LICENCIATURA EN TECNOLOGÍAS Y SISTEMAS DE INFORMACIÓN</div>
+                                <div class="dato-item full-width"><strong>División:</strong> CIENCIAS DE LA COMUNICACIÓN Y DISEÑO</div>
+                                <div class="dato-item"><strong>Fecha de nacimiento:</strong> 07/08/2002</div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="btn-action">Hoja de inscripción</button>
+                                <button class="btn-action">Guarda información</button>
+                            </div>
+                        </div>
+
+                        <div class="tabs">
+                            <button class="tab active">PERSONAL</button>
+                            <button class="tab">CONTACTO</button>
+                            <button class="tab">DOMICILIO</button>
+                        </div>
+
+                        <div class="tab-content">
+                            <div class="form-section">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Lugar de nacimiento</label>
+                                        <select class="form-select">
+                                            <option>MÉXICO</option>
+                                            <option>HIDALGO</option>
+                                            <option>JALISCO</option>
+                                            <option>NUEVO LEÓN</option>
+                                            <option>PUEBLA</option>
+                                            <option>VERACRUZ</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>R.F.C</label>
+                                        <input type="text" class="form-input" value="ROPV020807GM9">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>C.U.R.P</label>
+                                        <input type="text" class="form-input" value="ROPV020807HMCMRCA8">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (page === 'tiempo-permanencia') {
+                mainHeader.textContent = 'Consulta de Tiempo de Permanencia';
+                contentContainer.innerHTML = `
+                    <div class="page-content">
+                        <div class="tiempo-section">
+                            <div class="info-card">
+                                <h3 class="card-title">Datos del Alumno</h3>
+                                <div class="card-grid">
+                                    <div><strong>Matrícula:</strong> 2203024222</div>
+                                    <div><strong>Nombre:</strong> ROMERO PEREZ VICTOR MIGUEL</div>
+                                    <div><strong>Estado:</strong> 1: INSCRITO A UEA</div>
+                                    <div><strong>Nacionalidad:</strong> Mexicana(o)</div>
+                                    <div><strong>Nivel:</strong> Licenciatura</div>
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <h3 class="card-title">Datos Académicos</h3>
+                                <div class="card-grid">
+                                    <div><strong>Unidad:</strong> CUAJIMALPA</div>
+                                    <div><strong>División:</strong> CIENCIAS DE LA COMUNICACIÓN Y DISEÑO</div>
+                                    <div><strong>Carrera:</strong> 137: TECNOLOGÍAS Y SISTEMAS DE INFORMACIÓN</div>
+                                    <div><strong>Ver. del plan:</strong> 2</div>
+                                </div>
+                            </div>
+
+                            <div class="indicadores-grid">
+                                <div class="indicador-item">
+                                    <span class="indicador-label">Créditos máximos</span>
+                                    <span class="indicador-value">459</span>
+                                </div>
+                                <div class="indicador-item">
+                                    <span class="indicador-label">Créditos mínimos</span>
+                                    <span class="indicador-value">459</span>
+                                </div>
+                                <div class="indicador-item highlight">
+                                    <span class="indicador-label">Créditos acumulados</span>
+                                    <span class="indicador-value">185</span>
+                                </div>
+                                <div class="indicador-item">
+                                    <span class="indicador-label">Duración de la carrera</span>
+                                    <span class="indicador-value">12 trimestres</span>
+                                </div>
+                                <div class="indicador-item">
+                                    <span class="indicador-label">Duración máxima de la carrera</span>
+                                    <span class="indicador-value">-</span>
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <h3 class="card-title">Información de avance</h3>
+                                <div class="card-grid">
+                                    <div><strong>Área de concentración:</strong> 0</div>
+                                    <div><strong>Sub-área:</strong> 0</div>
+                                    <div><strong>Trimestre de ingreso:</strong> 200</div>
+                                    <div><strong>Último trimestre con actividad académica:</strong> 250</div>
+                                    <div><strong>Último trimestre inscrito:</strong> -</div>
+                                </div>
+                            </div>
+
+                            <div class="resumen-grid">
+                                <div class="resumen-item">
+                                    <span class="resumen-label">Trimestres contabilizados</span>
+                                    <span class="resumen-value">30</span>
+                                </div>
+                                <div class="resumen-item">
+                                    <span class="resumen-label">Trimestres restantes</span>
+                                    <span class="resumen-value">0</span>
+                                </div>
+                            </div>
+
+                            <div class="btn-center">
+                                <button class="btn-action">Emitir comprobante</button>
+                            </div>
+
+                            <div class="error-message">
+                                Se ha presentado un error al momento de contabilizar los trimestres, favor de intentar más tarde
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (page === 'cambiar-password') {
+                mainHeader.textContent = 'Cambio de contraseña';
+                contentContainer.innerHTML = `
+                    <div class="page-content">
+                        <div class="password-container">
+                            <div class="password-rules">
+                                <h3 class="rules-title">Reglas de la contraseña</h3>
+                                <ul class="rules-list">
+                                    <li>La contraseña debe estar formada por una palabra de diez a quince caracteres</li>
+                                    <li>Debe contener al menos una letra mayúscula [A-Z]</li>
+                                    <li>Debe contener al menos una letra minúscula [a-z]</li>
+                                    <li>Debe contener al menos un número [0-9]</li>
+                                    <li>No se permiten vocales acentuadas, ñ, Ñ ni espacios</li>
+                                    <li>No puede establecer la contraseña actual ni tres anteriores</li>
+                                </ul>
+                            </div>
+
+                            <div class="password-form">
+                                <div class="form-group-password">
+                                    <label>Contraseña actual</label>
+                                    <input type="password" id="password-actual" class="password-input">
+                                </div>
+                                <div class="form-group-password">
+                                    <label>Contraseña nueva</label>
+                                    <input type="password" id="password-nueva" class="password-input">
+                                </div>
+                                <div class="form-group-password">
+                                    <label>Confirme contraseña nueva</label>
+                                    <input type="password" id="password-confirm" class="password-input">
+                                </div>
+
+                                <div class="password-buttons">
+                                    <button class="btn-password cambiar" onclick="cambiarContrasena()">cambiar</button>
+                                    <button class="btn-password limpiar" onclick="limpiarCampos()">limpiar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (page === 'bajas-lenguas') {
+                mainHeader.textContent = 'Bajas de Inscripción a Cursos de Lenguas Extranjeras';
+                contentContainer.innerHTML = `
+                    <div class="page-content">
+                        <div class="bajas-container">
+                            <div class="info-row">
+                                <div class="info-item">
+                                    <label>Alumno:</label>
+                                    <input type="text" value="VICTOR MIGUEL ROMERO PEREZ" disabled>
+                                </div>
+                                <div class="info-item">
+                                    <label>Trimestre del proceso:</label>
+                                    <input type="text" value="26I" disabled>
+                                </div>
+                                <div class="info-item">
+                                    <label>Matrícula:</label>
+                                    <input type="text" value="2203024222" disabled>
+                                </div>
+                            </div>
+
+                            <div class="alert-message">
+                                El proceso ya no está activo, la fecha límite fue el 20/2/2026
+                            </div>
+
+                            <div class="folio-text">
+                                Folio: 2026-26I-001234
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
         });
     });
 
@@ -1167,4 +1387,48 @@ document.addEventListener('DOMContentLoaded', function() {
             contentContainer.innerHTML = '<!-- Container vacío para avisos -->';
         });
     });
+
+    window.cambiarContrasena = function() {
+        const actual = document.getElementById('password-actual').value;
+        const nueva = document.getElementById('password-nueva').value;
+        const confirm = document.getElementById('password-confirm').value;
+        
+        if (!actual || !nueva || !confirm) {
+            alert('Todos los campos son requeridos');
+            return;
+        }
+        
+        if (nueva !== confirm) {
+            alert('Las contraseñas nuevas no coinciden');
+            return;
+        }
+        
+        if (nueva.length < 10 || nueva.length > 15) {
+            alert('La contraseña debe tener entre 10 y 15 caracteres');
+            return;
+        }
+        
+        if (!/[A-Z]/.test(nueva)) {
+            alert('La contraseña debe contener al menos una mayúscula');
+            return;
+        }
+        
+        if (!/[a-z]/.test(nueva)) {
+            alert('La contraseña debe contener al menos una minúscula');
+            return;
+        }
+        
+        if (!/[0-9]/.test(nueva)) {
+            alert('La contraseña debe contener al menos un número');
+            return;
+        }
+        
+        alert('Contraseña cambiada exitosamente');
+    };
+
+    window.limpiarCampos = function() {
+        document.getElementById('password-actual').value = '';
+        document.getElementById('password-nueva').value = '';
+        document.getElementById('password-confirm').value = '';
+    };
 });
