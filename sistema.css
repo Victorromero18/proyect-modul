@@ -401,6 +401,42 @@ body {
     text-align: right;
 }
 
+/* Servicio Table */
+.servicio-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    margin-top: 15px;
+}
+
+.servicio-table th,
+.servicio-table td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.servicio-table thead th {
+    background: #3498db;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.servicio-table tbody td {
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.servicio-table tbody tr:nth-child(even) td {
+    background: #e8f4f8;
+}
+
+.servicio-table .text-right {
+    text-align: right;
+}
+
 .status-paid {
     color: #27ae60;
     font-weight: bold;
@@ -1227,4 +1263,20 @@ body {
     text-align: center;
     font-size: 12px;
     color: #666;
+}
+
+@media print {
+    .sidebar, .header, .main-header {
+        display: none !important;
+    }
+    .layout {
+        display: block !important;
+    }
+    .page-content {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    body {
+        background: white !important;
+    }
 }

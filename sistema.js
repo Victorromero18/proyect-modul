@@ -3,6 +3,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const contentContainer = document.getElementById('contentContainer');
     const mainHeader = document.querySelector('.main-header h2');
 
+    // Handler para pestañas de pagos
+    contentContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('tab') && e.target.parentElement.id === 'pagos-tabs') {
+            var tabs = document.querySelectorAll('#pagos-tabs .tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            var tabName = e.target.getAttribute('data-tab');
+            document.getElementById('colegiaturas-content').style.display = tabName === 'colegiaturas' ? 'block' : 'none';
+            document.getElementById('servicio-content').style.display = tabName === 'servicio' ? 'block' : 'none';
+        }
+        else if (e.target.classList.contains('tab') && e.target.parentElement.classList.contains('tabs')) {
+            var tabsContainer = e.target.parentElement;
+            var tabButtons = tabsContainer.querySelectorAll('.tab');
+            tabButtons.forEach(function(t) { t.classList.remove('active'); });
+            e.target.classList.add('active');
+            
+            var tabName = e.target.getAttribute('data-tab');
+            var sibling = tabsContainer.nextElementSibling;
+            while (sibling) {
+                if (sibling.classList.contains('tab-content')) {
+                    var allContents = sibling.querySelectorAll('div[id$="-content"]');
+                    allContents.forEach(function(c) {
+                        c.style.display = 'none';
+                    });
+                    var contentToShow = sibling.querySelector('#' + tabName + '-content');
+                    if (contentToShow) {
+                        contentToShow.style.display = 'block';
+                    }
+                    break;
+                }
+                sibling = sibling.nextElementSibling;
+            }
+        }
+    });
+
     menuItems.forEach(item => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
@@ -453,121 +489,205 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
 
-                        <div class="section-title">Colegiaturas - Servicios en Caja</div>
+                        <div class="tabs" id="pagos-tabs">
+                            <button class="tab active" data-tab="colegiaturas">Colegiaturas</button>
+                            <button class="tab" data-tab="servicio">Servicio en Caja</button>
+                        </div>
 
-                        <div class="section-title">Detalle</div>
-
-                        <table class="pagos-table">
-                            <thead>
-                                <tr>
-                                    <th>Trimestre</th>
-                                    <th>Dedicación</th>
-                                    <th>Estado del pago</th>
-                                    <th>Cantidad Pagada</th>
-                                    <th>Origen e Importe del Pago</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>26I</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">128.43</td>
-                                    <td>LINEA DE CAPTURA<br>128.43</td>
-                                </tr>
-                                <tr>
-                                    <td>25O</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">256.86</td>
-                                    <td>MULTIPAGOS<br>256.86</td>
-                                </tr>
-                                <tr>
-                                    <td>25P</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">128.43</td>
-                                    <td>LINEA DE CAPTURA<br>128.43</td>
-                                </tr>
-                                <tr>
-                                    <td>25I</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">128.43</td>
-                                    <td>MULTIPAGOS<br>128.43</td>
-                                </tr>
-                                <tr>
-                                    <td>24O</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">256.86</td>
-                                    <td>MULTIPAGOS<br>256.86</td>
-                                </tr>
-                                <tr>
-                                    <td>24P</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">128.43</td>
-                                    <td>MULTIPAGOS<br>128.43</td>
-                                </tr>
-                                <tr>
-                                    <td>23O</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">256.86</td>
-                                    <td>MULTIPAGOS<br>256.86</td>
-                                </tr>
-                                <tr>
-                                    <td>23I</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">128.43</td>
-                                    <td>MULTIPAGOS<br>128.43</td>
-                                </tr>
-                                <tr>
-                                    <td>22O</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">256.86</td>
-                                    <td>MULTIPAGOS<br>256.86</td>
-                                </tr>
-                                <tr>
-                                    <td>22I</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">128.43</td>
-                                    <td>LINEA DE CAPTURA<br>128.43</td>
-                                </tr>
-                                <tr>
-                                    <td>21O</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">256.86</td>
-                                    <td>PAGO EN CAJA<br>256.86</td>
-                                </tr>
-                                <tr>
-                                    <td>21P</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">128.43</td>
-                                    <td>LINEA DE CAPTURA<br>128.43</td>
-                                </tr>
-                                <tr>
-                                    <td>21I</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">128.43</td>
-                                    <td>LINEA DE CAPTURA<br>128.43</td>
-                                </tr>
-                                <tr>
-                                    <td>20O</td>
-                                    <td>TIEMPO COMPLETO</td>
-                                    <td class="text-center status-paid">PAGO CUBIERTO</td>
-                                    <td class="text-right">256.86</td>
-                                    <td>LINEA DE CAPTURA<br>256.86</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="tab-content" id="pagos-content">
+                            <div class="section-title">Detalle</div>
+                            
+                            <!-- Contenido Colegiaturas -->
+                            <div id="colegiaturas-content">
+                                <table class="pagos-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Trimestre</th>
+                                            <th>Dedicación</th>
+                                            <th>Estado del pago</th>
+                                            <th>Cantidad Pagada</th>
+                                            <th>Origen e Importe del Pago</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>26I</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>LINEA DE CAPTURA<br>128.43</td>
+                                        </tr>
+                                        <tr>
+                                            <td>25O</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">256.86</td>
+                                            <td>MULTIPAGOS<br>256.86</td>
+                                        </tr>
+                                        <tr>
+                                            <td>25P</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>LINEA DE CAPTURA<br>128.43</td>
+                                        </tr>
+                                        <tr>
+                                            <td>25I</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>MULTIPAGOS<br>128.43</td>
+                                        </tr>
+                                        <tr>
+                                            <td>24O</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">256.86</td>
+                                            <td>MULTIPAGOS<br>256.86</td>
+                                        </tr>
+                                        <tr>
+                                            <td>24P</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>MULTIPAGOS<br>128.43</td>
+                                        </tr>
+                                        <tr>
+                                            <td>23O</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">256.86</td>
+                                            <td>MULTIPAGOS<br>256.86</td>
+                                        </tr>
+                                        <tr>
+                                            <td>23I</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>MULTIPAGOS<br>128.43</td>
+                                        </tr>
+                                        <tr>
+                                            <td>22O</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">256.86</td>
+                                            <td>MULTIPAGOS<br>256.86</td>
+                                        </tr>
+                                        <tr>
+                                            <td>22I</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>LINEA DE CAPTURA<br>128.43</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21O</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">256.86</td>
+                                            <td>PAGO EN CAJA<br>256.86</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21P</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>LINEA DE CAPTURA<br>128.43</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21I</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>LINEA DE CAPTURA<br>128.43</td>
+                                        </tr>
+                                        <tr>
+                                            <td>20O</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">256.86</td>
+                                            <td>LINEA DE CAPTURA<br>256.86</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Contenido Servicio en Caja -->
+                            <div id="servicio-content" style="display:none;">
+                                <table class="servicio-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Solicitud</th>
+                                            <th>Concepto</th>
+                                            <th>Importe Unitario</th>
+                                            <th>Fecha de Solicitud</th>
+                                            <th>Trimestre Solicitud</th>
+                                            <th>Fecha de Proceso</th>
+                                            <th>Trimestre de Proceso</th>
+                                            <th>Servicio Pagado</th>
+                                            <th>Estado Pago</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>CSC2025028441</td>
+                                            <td>EVALUACIONES DE RECUPERACIÓN</td>
+                                            <td class="text-right">2.20</td>
+                                            <td>17/12/2025 11:41:52</td>
+                                            <td></td>
+                                            <td>05/01/2026 16:46:59</td>
+                                            <td>25O</td>
+                                            <td>Si</td>
+                                            <td class="status-paid">PAGADO</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSC2024016891</td>
+                                            <td>EVALUACIONES DE RECUPERACIÓN</td>
+                                            <td class="text-right">2.20</td>
+                                            <td>06/02/2024 10:48:03</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Si</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSC2023014380</td>
+                                            <td>EVALUACIONES DE RECUPERACIÓN</td>
+                                            <td class="text-right">4.20</td>
+                                            <td>22/06/2023 15:37:20</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Si</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSC2023014379</td>
+                                            <td>EVALUACIONES DE RECUPERACIÓN</td>
+                                            <td class="text-right">4.20</td>
+                                            <td>22/06/2023 15:36:59</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Si</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSC2022010671</td>
+                                            <td>CERTIFICADOS Y EXPEDICIÓN DE DOCUMENTOS</td>
+                                            <td class="text-right">4.20</td>
+                                            <td>26/07/2022 12:22:20</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Si</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 `;
             }
@@ -621,7 +741,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <tr>
                                     <td class="text-center">1</td>
                                     <td>Carta de No Violencia</td>
-                                    <td class="text-center"><button class="btn-emitir">Emitir</button></td>
+                                    <td class="text-center"><button class="btn-emitir" onclick="mostrarCarta()">Emitir</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -642,94 +762,150 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
 
                         <div class="tabs">
-                            <button class="tab active">Datos Personales</button>
-                            <button class="tab">Seguro Social</button>
-                            <button class="tab">Tutorías</button>
-                            <button class="tab">Documentos</button>
+                            <button class="tab active" data-tab="datos-personales">Datos Personales</button>
+                            <button class="tab" data-tab="seguro-social">Seguro Social</button>
+                            <button class="tab" data-tab="tutorias">Tutorías</button>
+                            <button class="tab" data-tab="documentos">Documentos</button>
                         </div>
 
-                        <div class="tab-content">
-                            <div class="section-header">Datos personales</div>
-                            
-                            <div class="form-grid">
-                                <div class="form-field">
-                                    <span class="field-label">Nacionalidad:</span>
-                                    <span class="field-value">Mexicano</span>
+                        <div class="tab-content" id="info-personal-tabs">
+                            <div id="datos-personales-content">
+                                <div class="section-header">Datos personales</div>
+                                
+                                <div class="form-grid">
+                                    <div class="form-field">
+                                        <span class="field-label">Nacionalidad:</span>
+                                        <span class="field-value">Mexicano</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Fecha de nacimiento:</span>
+                                        <span class="field-value">07/08/2002</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Lugar de nacimiento:</span>
+                                        <span class="field-value">México</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">CURP:</span>
+                                        <span class="field-value">VOPV020807HMCMRCA8</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Correo:</span>
+                                        <span class="field-value">victor.romero@cua.uam.mx</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Sexo:</span>
+                                        <span class="field-value">Masculino</span>
+                                    </div>
                                 </div>
-                                <div class="form-field">
-                                    <span class="field-label">Fecha de nacimiento:</span>
-                                    <span class="field-value">07/08/2002</span>
+
+                                <div class="section-header">Domicilio</div>
+                                
+                                <div class="form-grid">
+                                    <div class="form-field">
+                                        <span class="field-label">Calle:</span>
+                                        <span class="field-value">Emiliano Zapata 3</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Colonia:</span>
+                                        <span class="field-value">Santiago Yanhuitlalpan</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Código:</span>
+                                        <span class="field-value">52766</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Entidad:</span>
+                                        <span class="field-value">México</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Delegación/Municipio:</span>
+                                        <span class="field-value">Huixquilucan</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Teléfono:</span>
+                                        <span class="field-value">5533722825</span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Lada:</span>
+                                        <span class="field-value">52</span>
+                                    </div>
                                 </div>
-                                <div class="form-field">
-                                    <span class="field-label">Lugar de nacimiento:</span>
-                                    <span class="field-value">México</span>
+
+                                <div class="section-header">Datos adicionales</div>
+                                
+                                <div class="form-grid">
+                                    <div class="form-field">
+                                        <span class="field-label">Teléfono:</span>
+                                        <span class="field-value"></span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Fax:</span>
+                                        <span class="field-value"></span>
+                                    </div>
+                                    <div class="form-field">
+                                        <span class="field-label">Correo:</span>
+                                        <span class="field-value">vitmicky18@gmail.com</span>
+                                    </div>
                                 </div>
-                                <div class="form-field">
-                                    <span class="field-label">CURP:</span>
-                                    <span class="field-value">VOPV020807HMCMRCA8</span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Correo:</span>
-                                    <span class="field-value">victor.romero@cua.uam.mx</span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Sexo:</span>
-                                    <span class="field-value">Masculino</span>
+
+                                <div class="btn-update-container">
+                                    <button class="btn-update">Actualizar domicilio</button>
                                 </div>
                             </div>
 
-                            <div class="section-header">Domicilio</div>
-                            
-                            <div class="form-grid">
-                                <div class="form-field">
-                                    <span class="field-label">Calle:</span>
-                                    <span class="field-value">Emiliano Zapata 3</span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Colonia:</span>
-                                    <span class="field-value">Santiago Yanhuitlalpan</span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Código:</span>
-                                    <span class="field-value">52766</span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Entidad:</span>
-                                    <span class="field-value">México</span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Delegación/Municipio:</span>
-                                    <span class="field-value">Huixquilucan</span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Teléfono:</span>
-                                    <span class="field-value">5533722825</span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Lada:</span>
-                                    <span class="field-value">52</span>
+                            <div id="seguro-social-content" style="display:none;">
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:13px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:10px; border:1px solid #2980b9; color:white; text-align:left;">Número Seguridad Social</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;">
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;">85170228135</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="tutorias-content" style="display:none;">
+                                <div class="section-header">Tutorías</div>
+                                <div class="form-grid">
+                                    <div class="form-field">
+                                        <span class="field-label">Tutor:</span>
+                                        <span class="field-value"></span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="section-header">Datos adicionales</div>
-                            
-                            <div class="form-grid">
-                                <div class="form-field">
-                                    <span class="field-label">Teléfono:</span>
-                                    <span class="field-value"></span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Fax:</span>
-                                    <span class="field-value"></span>
-                                </div>
-                                <div class="form-field">
-                                    <span class="field-label">Correo:</span>
-                                    <span class="field-value">vitmicky18@gmail.com</span>
-                                </div>
-                            </div>
-
-                            <div class="btn-update-container">
-                                <button class="btn-update">Actualizar domicilio</button>
+                            <div id="documentos-content" style="display:none;">
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:13px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:10px; border:1px solid #2980b9; color:white; text-align:left;">Documento</th>
+                                            <th style="padding:10px; border:1px solid #2980b9; color:white; text-align:left;">Estado</th>
+                                            <th style="padding:10px; border:1px solid #2980b9; color:white; text-align:left;">Fecha Prórroga<br>(en caso de estar registrada)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;">
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;">ACTA DE NACIMIENTO</td>
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;">ENTREGADO A D.S.E.</td>
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;"></td>
+                                        </tr>
+                                        <tr style="background:#f9f9f9;">
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;">CERTIFICADO DE BACHILLERATO</td>
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;">ENTREGADO A D.S.E.</td>
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;"></td>
+                                        </tr>
+                                        <tr style="background:#f9f9f9;">
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;">C.U.R.P.</td>
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;">ENTREGADO A D.S.E.</td>
+                                            <td style="padding:10px; border:1px solid #3498db; color:#333;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -753,15 +929,16 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
 
                         <div class="tabs">
-                            <button class="tab active">Datos Académicos</button>
-                            <button class="tab">Resumen Trimestral</button>
-                            <button class="tab">Autorizaciones</button>
-                            <button class="tab">UEA no aprobadas</button>
-                            <button class="tab">Crédititos Cubiertos</button>
+                            <button class="tab active" data-tab="datos-academicos">Datos Académicos</button>
+                            <button class="tab" data-tab="resumen-trimestral">Resumen Trimestral</button>
+                            <button class="tab" data-tab="autorizaciones">Autorizaciones</button>
+                            <button class="tab" data-tab="uea-no-aprobadas">UEA no aprobadas</button>
+                            <button class="tab" data-tab="creditos-cubiertos">Crédititos Cubiertos</button>
                         </div>
 
                         <div class="tab-content">
-                            <div class="section-header">Datos Académicos</div>
+                            <div id="datos-academicos-content">
+                                <div class="section-header">Datos Académicos</div>
                             
                             <div class="form-grid">
                                 <div class="form-field">
@@ -854,7 +1031,229 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
 
                             <div class="btn-update-container">
-                                <button class="btn-update">Imprime información</button>
+                                <button class="btn-update" onclick="window.print()">Imprime información</button>
+                            </div>
+                            </div>
+
+                            <div id="resumen-trimestral-content" style="display:none;">
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:12px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Trimestre</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Renuncias</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Créditos inscritos en evaluación global</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Créditos inscritos en evaluación de recuperación</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Créditos aprobados en evaluación global</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Créditos aprobados en evaluación de recuperación</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">MB</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">B</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">S</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">NA</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Trimestre en que se ubica</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Créditos Acumulados</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Créditos Permitidos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">20O</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">32</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">32</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">32</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">21I</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">36</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">36</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">68</td><td style="padding:8px; border:1px solid #3498db;">49</td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">21P</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">38</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">8</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">76</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">21O</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">41</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">11</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">87</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">24</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">8</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">95</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">22O</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">36</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">95</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">23I</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">10</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">10</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">105</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">23O</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">16</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">105</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">24P</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">24</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">105</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">24O</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">8</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">105</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">25I</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">105</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">25P</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">40</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">40</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">3</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">4</td><td style="padding:8px; border:1px solid #3498db;">145</td><td style="padding:8px; border:1px solid #3498db;">41</td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">25O</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">40</td><td style="padding:8px; border:1px solid #3498db;">10</td><td style="padding:8px; border:1px solid #3498db;">30</td><td style="padding:8px; border:1px solid #3498db;">10</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">5</td><td style="padding:8px; border:1px solid #3498db;">185</td><td style="padding:8px; border:1px solid #3498db;">53</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">26I</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">30</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">1</td><td style="padding:8px; border:1px solid #3498db;">5</td><td style="padding:8px; border:1px solid #3498db;">185</td><td style="padding:8px; border:1px solid #3498db;">49</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="autorizaciones-content" style="display:none;">
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:12px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Clave U.E.A.</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Nombre</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Trimestre</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Grupo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4001016</td><td style="padding:8px; border:1px solid #3498db;">TEMAS SELECTOS DE MATEMATICAS APLICADAS I</td><td style="padding:8px; border:1px solid #3498db;">22P</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4001017</td><td style="padding:8px; border:1px solid #3498db;">TEMAS SELECTOS DE MATEMATICAS APLICADAS II</td><td style="padding:8px; border:1px solid #3498db;">22P</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4001018</td><td style="padding:8px; border:1px solid #3498db;">TEMAS SELECTOS DE MATEMATICAS APLICADAS III</td><td style="padding:8px; border:1px solid #3498db;">22P</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4001019</td><td style="padding:8px; border:1px solid #3498db;">TEMAS SELECTOS DE MATEMATICAS APLICADAS IV</td><td style="padding:8px; border:1px solid #3498db;">22P</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4210005</td><td style="padding:8px; border:1px solid #3498db;">GRANDES PARADIGMAS CIENTIFICOS</td><td style="padding:8px; border:1px solid #3498db;">23I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4210007</td><td style="padding:8px; border:1px solid #3498db;">HISTORIA CONTEMPORANEA</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4210015</td><td style="padding:8px; border:1px solid #3498db;">FUNDAMENTOS DE CONTABILIDAD</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4210020</td><td style="padding:8px; border:1px solid #3498db;">FUNDAMENTOS DE CONTABILIDAD DE COSTOS</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4210023</td><td style="padding:8px; border:1px solid #3498db;">ADMINISTRACION FINANCIERA I</td><td style="padding:8px; border:1px solid #3498db;">22P</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4210044</td><td style="padding:8px; border:1px solid #3498db;">GESTION DEL CONOCIMIENTO Y APRENDIZAJE ORGANIZACIONAL</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4210053</td><td style="padding:8px; border:1px solid #3498db;">CULTURAS, CONFLICTOS Y ORGANIZACION</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4210081</td><td style="padding:8px; border:1px solid #3498db;">DERECHO DE LOS RECURSOS NATURALES</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4210082</td><td style="padding:8px; border:1px solid #3498db;">DERECHOS HUMANOS</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4211019</td><td style="padding:8px; border:1px solid #3498db;">NUEVAS FORMAS DE ORGANIZACION DE LA SOCIEDAD CIVIL</td><td style="padding:8px; border:1px solid #3498db;">22P</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4211066</td><td style="padding:8px; border:1px solid #3498db;">SEMINARIO DE ECONOMIA POLITICA</td><td style="padding:8px; border:1px solid #3498db;">23I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4211067</td><td style="padding:8px; border:1px solid #3498db;">SEMINARIO: GLOBALIZACION</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4211080</td><td style="padding:8px; border:1px solid #3498db;">ETICA</td><td style="padding:8px; border:1px solid #3498db;">24P</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4211081</td><td style="padding:8px; border:1px solid #3498db;">FILOSOFIA POLITICA</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4211082</td><td style="padding:8px; border:1px solid #3498db;">FILOSOFIA SOCIAL</td><td style="padding:8px; border:1px solid #3498db;">22P</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4212013</td><td style="padding:8px; border:1px solid #3498db;">PROCESOS MUNDIALES CONTEMPORANEOS</td><td style="padding:8px; border:1px solid #3498db;">22I</td><td style="padding:8px; border:1px solid #3498db;"></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="uea-no-aprobadas-content" style="display:none;">
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:12px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Clave de UEA</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Nombre</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Trimestre lectivo</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Tipo de evaluación</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Plan</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Versión</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Area de concentración</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">No. de acta</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Renglón</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Origen de calif.</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Calificación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4210011</td><td style="padding:8px; border:1px solid #3498db;">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</td><td style="padding:8px; border:1px solid #3498db;">23O</td><td style="padding:8px; border:1px solid #3498db;">GLO.</td><td style="padding:8px; border:1px solid #3498db;">137</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">410131522</td><td style="padding:8px; border:1px solid #3498db;">26</td><td style="padding:8px; border:1px solid #3498db;">U.E.A. CURSADA</td><td style="padding:8px; border:1px solid #3498db;">NA</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4210011</td><td style="padding:8px; border:1px solid #3498db;">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</td><td style="padding:8px; border:1px solid #3498db;">24O</td><td style="padding:8px; border:1px solid #3498db;">GLO.</td><td style="padding:8px; border:1px solid #3498db;">137</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">410160678</td><td style="padding:8px; border:1px solid #3498db;">21</td><td style="padding:8px; border:1px solid #3498db;">U.E.A. CURSADA</td><td style="padding:8px; border:1px solid #3498db;">NA</td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4600002</td><td style="padding:8px; border:1px solid #3498db;">MATEMATICAS DISCRETAS II</td><td style="padding:8px; border:1px solid #3498db;">23O</td><td style="padding:8px; border:1px solid #3498db;">GLO.</td><td style="padding:8px; border:1px solid #3498db;">137</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">410135479</td><td style="padding:8px; border:1px solid #3498db;">18</td><td style="padding:8px; border:1px solid #3498db;">U.E.A. CURSADA</td><td style="padding:8px; border:1px solid #3498db;">NA</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4600002</td><td style="padding:8px; border:1px solid #3498db;">MATEMATICAS DISCRETAS II</td><td style="padding:8px; border:1px solid #3498db;">24P</td><td style="padding:8px; border:1px solid #3498db;">GLO.</td><td style="padding:8px; border:1px solid #3498db;">137</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">410152439</td><td style="padding:8px; border:1px solid #3498db;">19</td><td style="padding:8px; border:1px solid #3498db;">U.E.A. CURSADA</td><td style="padding:8px; border:1px solid #3498db;">NA</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div id="creditos-cubiertos-content" style="display:none;">
+                                <div class="section-header">Créditos Cubiertos</div>
+                                
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:12px; margin-bottom:15px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white; text-align:center;" colspan="3">Plan</th>
+                                        </tr>
+                                        <tr style="background:#5dade2;">
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Clave</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Nombre</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Versión</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;">
+                                            <td style="padding:8px; border:1px solid #3498db;">137</td>
+                                            <td style="padding:8px; border:1px solid #3498db;">LICENCIATURA EN TECNOLOGIAS Y SISTEMAS DE INFORMACION</td>
+                                            <td style="padding:8px; border:1px solid #3498db;">2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:12px; margin-bottom:15px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Créditos Contabilizados</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Créditos a Cubrir</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Porcentaje</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;">
+                                            <td style="padding:8px; border:1px solid #3498db; text-align:center;">185</td>
+                                            <td style="padding:8px; border:1px solid #3498db; text-align:center;">459</td>
+                                            <td style="padding:8px; border:1px solid #3498db; text-align:center;">40.30%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:11px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Nivel</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">A.C.</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Nombre</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Créditos a Cubrir</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Obligatorios</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Optativos Mínimo</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Optativos Máximo</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Total</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Obligatorios</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Optativos</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Total</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Obligatorios</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Optativos</th>
+                                            <th style="padding:6px; border:1px solid #2980b9; color:white;">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;">
+                                            <td style="padding:6px; border:1px solid #3498db;">1</td>
+                                            <td style="padding:6px; border:1px solid #3498db;"></td>
+                                            <td style="padding:6px; border:1px solid #3498db;">TRONCO GENERAL DE FORMACION INICIAL</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">32</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">32</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">32</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">32</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                        </tr>
+                                        <tr style="background:#ffffff;">
+                                            <td style="padding:6px; border:1px solid #3498db;">2</td>
+                                            <td style="padding:6px; border:1px solid #3498db;"></td>
+                                            <td style="padding:6px; border:1px solid #3498db;">FORMACION BASICA</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">205</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">205</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">133</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">133</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">72</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">72</td>
+                                        </tr>
+                                        <tr style="background:#f9f9f9;">
+                                            <td style="padding:6px; border:1px solid #3498db;">3</td>
+                                            <td style="padding:6px; border:1px solid #3498db;"></td>
+                                            <td style="padding:6px; border:1px solid #3498db;">FORMACION PROFESIONAL</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">122</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">100</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">132</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">254</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">Máx. 20</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">20</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">102</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">100</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">234</td>
+                                        </tr>
+                                        <tr style="background:#e8f4fc;">
+                                            <td style="padding:6px; border:1px solid #3498db; font-weight:bold;" colspan="3">TOTALES</td>
+                                            <td style="padding:6px; border:1px solid #3498db; font-weight:bold;">359</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">132</td>
+                                            <td style="padding:6px; border:1px solid #3498db;"></td>
+                                            <td style="padding:6px; border:1px solid #3498db; font-weight:bold;">491</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">185</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">0</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">185</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">174</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">100</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">306</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -877,12 +1276,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
 
                         <div class="tabs">
-                            <button class="tab active">Datos Académicos</button>
-                            <button class="tab">UEA no aprobadas</button>
+                            <button class="tab active" data-tab="datos-academicos-lc">Datos Académicos</button>
+                            <button class="tab" data-tab="uea-no-aprobadas-lc">UEA no aprobadas</button>
                         </div>
 
                         <div class="tab-content">
-                            <div class="section-header">Datos personales</div>
+                            <div id="datos-academicos-lc-content">
+                                <div class="section-header">Datos personales</div>
                             
                             <div class="form-grid">
                                 <div class="form-field">
@@ -969,9 +1369,32 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="info-text" style="background: #fff3cd; border-color: #ffc107;">
                                 <p>En caso de existir algún dato incorrecto envía un correo a uamaspirantesaceptados@correo.uam.mx y realiza la aclaración o corrección correspondiente.</p>
                             </div>
+                            </div>
 
-                            <div class="btn-update-container">
-                                <button class="btn-update">CONTINUAR</button>
+                            <div id="uea-no-aprobadas-lc-content" style="display:none;">
+                                <table style="width:100%; border-collapse:collapse; border:2px solid #3498db; font-family:Arial, sans-serif; font-size:12px;">
+                                    <thead>
+                                        <tr style="background:#3498db;">
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Clave de UEA</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Nombre</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Trimestre lectivo</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Tipo de evaluación</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Plan</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Versión</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Area de concentración</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">No. de acta</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Renglón</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Origen de calif.</th>
+                                            <th style="padding:8px; border:1px solid #2980b9; color:white;">Calificación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4210011</td><td style="padding:8px; border:1px solid #3498db;">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</td><td style="padding:8px; border:1px solid #3498db;">23O</td><td style="padding:8px; border:1px solid #3498db;">GLO.</td><td style="padding:8px; border:1px solid #3498db;">137</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">410131522</td><td style="padding:8px; border:1px solid #3498db;">26</td><td style="padding:8px; border:1px solid #3498db;">U.E.A. CURSADA</td><td style="padding:8px; border:1px solid #3498db;">NA</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4210011</td><td style="padding:8px; border:1px solid #3498db;">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</td><td style="padding:8px; border:1px solid #3498db;">24O</td><td style="padding:8px; border:1px solid #3498db;">GLO.</td><td style="padding:8px; border:1px solid #3498db;">137</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">410160678</td><td style="padding:8px; border:1px solid #3498db;">21</td><td style="padding:8px; border:1px solid #3498db;">U.E.A. CURSADA</td><td style="padding:8px; border:1px solid #3498db;">NA</td></tr>
+                                        <tr style="background:#f9f9f9;"><td style="padding:8px; border:1px solid #3498db;">4600002</td><td style="padding:8px; border:1px solid #3498db;">MATEMATICAS DISCRETAS II</td><td style="padding:8px; border:1px solid #3498db;">23O</td><td style="padding:8px; border:1px solid #3498db;">GLO.</td><td style="padding:8px; border:1px solid #3498db;">137</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">410135479</td><td style="padding:8px; border:1px solid #3498db;">18</td><td style="padding:8px; border:1px solid #3498db;">U.E.A. CURSADA</td><td style="padding:8px; border:1px solid #3498db;">NA</td></tr>
+                                        <tr style="background:#ffffff;"><td style="padding:8px; border:1px solid #3498db;">4600002</td><td style="padding:8px; border:1px solid #3498db;">MATEMATICAS DISCRETAS II</td><td style="padding:8px; border:1px solid #3498db;">24P</td><td style="padding:8px; border:1px solid #3498db;">GLO.</td><td style="padding:8px; border:1px solid #3498db;">137</td><td style="padding:8px; border:1px solid #3498db;">2</td><td style="padding:8px; border:1px solid #3498db;">0</td><td style="padding:8px; border:1px solid #3498db;">410152439</td><td style="padding:8px; border:1px solid #3498db;">19</td><td style="padding:8px; border:1px solid #3498db;">U.E.A. CURSADA</td><td style="padding:8px; border:1px solid #3498db;">NA</td></tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -1060,7 +1483,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
 
                             <div class="btn-print-container">
-                                <button class="btn-print">IMPRIMIR</button>
+                                <button class="btn-print" onclick="window.print()">IMPRIMIR</button>
                             </div>
                         </div>
                     </div>
@@ -1151,70 +1574,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         <div class="btn-update-container">
                             <button class="btn-update">SALIR</button>
-                        </div>
-                    </div>
-                `;
-            }
-
-            if (page === 'hoja-nuevo-ingreso') {
-                mainHeader.textContent = 'TRIMESTRE ACTUAL 26I';
-                contentContainer.innerHTML = `
-                    <div class="page-content">
-                        <div class="header-with-toggle">
-                            <button class="btn-toggle">Ocultar Datos Académicos</button>
-                        </div>
-
-                        <div class="datos-alumno-section">
-                            <div class="datos-grid">
-                                <div class="dato-item"><strong>Apellido Paterno:</strong> ROMERO</div>
-                                <div class="dato-item"><strong>Apellido Materno:</strong> PEREZ</div>
-                                <div class="dato-item"><strong>Nombre(s):</strong> VICTOR MIGUEL</div>
-                                <div class="dato-item"><strong>Estado:</strong> NO REINSCRITO</div>
-                                <div class="dato-item"><strong>Nacionalidad:</strong> MEXICANA</div>
-                                <div class="dato-item"><strong>Unidad:</strong> CUAJIMALPA</div>
-                                <div class="dato-item"><strong>Trimestre de ingreso:</strong> 200</div>
-                                <div class="dato-item"><strong>Trimestre de reinscripción:</strong> 26I</div>
-                                <div class="dato-item full-width"><strong>Plan de Estudios:</strong> LICENCIATURA EN TECNOLOGÍAS Y SISTEMAS DE INFORMACIÓN</div>
-                                <div class="dato-item full-width"><strong>División:</strong> CIENCIAS DE LA COMUNICACIÓN Y DISEÑO</div>
-                                <div class="dato-item"><strong>Fecha de nacimiento:</strong> 07/08/2002</div>
-                            </div>
-
-                            <div class="action-buttons">
-                                <button class="btn-action">Hoja de inscripción</button>
-                                <button class="btn-action">Guarda información</button>
-                            </div>
-                        </div>
-
-                        <div class="tabs">
-                            <button class="tab active">PERSONAL</button>
-                            <button class="tab">CONTACTO</button>
-                            <button class="tab">DOMICILIO</button>
-                        </div>
-
-                        <div class="tab-content">
-                            <div class="form-section">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label>Lugar de nacimiento</label>
-                                        <select class="form-select">
-                                            <option>MÉXICO</option>
-                                            <option>HIDALGO</option>
-                                            <option>JALISCO</option>
-                                            <option>NUEVO LEÓN</option>
-                                            <option>PUEBLA</option>
-                                            <option>VERACRUZ</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>R.F.C</label>
-                                        <input type="text" class="form-input" value="ROPV020807GM9">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>C.U.R.P</label>
-                                        <input type="text" class="form-input" value="ROPV020807HMCMRCA8">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 `;
@@ -1430,5 +1789,31 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('password-actual').value = '';
         document.getElementById('password-nueva').value = '';
         document.getElementById('password-confirm').value = '';
+    };
+
+    window.mostrarCarta = function() {
+        var cartaWindow = window.open('', 'Carta', 'width=800,height=600,scrollbars=yes');
+        cartaWindow.document.write('<!DOCTYPE html><html><head><title>Carta de No Violencia</title>');
+        cartaWindow.document.write('<style>body{font-family:Arial,sans-serif;padding:40px;max-width:800px;margin:0 auto;}');
+        cartaWindow.document.write('h1{font-size:18px;text-align:center;margin-bottom:30px;}');
+        cartaWindow.document.write('.fecha{text-align:right;margin-bottom:20px;}');
+        cartaWindow.document.write('.destinatario{text-align:left;margin-bottom:20px;}');
+        cartaWindow.document.write('.contenido{text-align:justify;line-height:1.8;margin-bottom:30px;}');
+        cartaWindow.document.write('.firma{border-top:1px solid #000;padding-top:10px;margin-top:50px;}');
+        cartaWindow.document.write('.nombre{font-weight:bold;margin-top:10px;}');
+        cartaWindow.document.write('.nota{font-size:12px;font-style:italic;margin-top:30px;}');
+        cartaWindow.document.write('.imprimir{text-align:center;margin-top:30px;}');
+        cartaWindow.document.write('.btn-print{background:#3498db;color:white;border:none;padding:10px 30px;cursor:pointer;font-size:14px;}');
+        cartaWindow.document.write('</style></head><body>');
+        cartaWindow.document.write('<h1>CARTA DE FOMENTO A UNA CULTURA DE PAZ Y ELIMINACIÓN DE LA VIOLENCIA EN LA UAM</h1>');
+        cartaWindow.document.write('<div class="fecha">Ciudad de México, a 13 de Abril de 2026</div>');
+        cartaWindow.document.write('<div class="destinatario"><strong>Universidad Autónoma Metropolitana</strong><br>P r e s e n t e</div>');
+        cartaWindow.document.write('<div class="contenido">Se me ha informado que conforme a los principios derivados de los artículos 1º y 3º de la Constitución Política de los Estados Unidos Mexicanos, la educación que recibiré de la Universidad tenderá a fomentar el respeto a los derechos humanos, el aprecio y respeto por la diversidad cultural, y la dignidad de las personas, por lo que, como integrante del alumnado de la Universidad Autónoma Metropolitana, expreso mi compromiso para:<br><br>Contribuir a que en los espacios universitarios prevalezca una cultura de paz y se mantengan libres de manifestaciones violentas o discriminatorias que atenten contra la integridad, seguridad, derechos y libertades de las personas, por lo que apoyaré las medidas institucionales relacionadas con la prevención y atención de la violencia, especialmente la que se ejerza por razones de género, y la discriminación.<br><br>Tomar cursos, talleres y pláticas en general, que fortalezcan mi formación en materia de derechos humanos y perspectiva de género, entre otros.<br><br>Observar, en cualquier actividad escolar que realice, los principios rectores y valores institucionales como los de igualdad, libertad, tolerancia, honradez, responsabilidad, solidaridad y sostenibilidad, entre otros.<br><br>Respetar la obra intelectual que utilice o conoce en mi formación académica, por lo que en ningún caso presentaré, como propios, trabajos que no sean de mi autoría.<br><br>Contribuir en la conservación, ampliación y fortalecimiento de los recursos naturales y sociales necesarios para la humanidad y la preservación de la vida en el planeta.<br><br>Para ello atenderé, especialmente, las Políticas Transversales para Erradicar la Violencia por Razones de Género; el Reglamento del Alumnado, en lo relativo a los derechos, responsabilidades y faltas; el Reglamento de la Defensoría de los Derechos Universitarios, y el Código de Ética, en cuanto a los derechos humanos y universitarios que se deben preservar en los espacios universitarios.</div>');
+        cartaWindow.document.write('<div class="firma"><div style="text-align:center;">A t e n t a m e n t e</div><br><div style="text-align:center; border-top:1px solid #000; padding-top:10px; margin:0 auto; width:300px;">ROMERO PEREZ VICTOR MIGUEL<br>Licenciatura<br>2203024222</div></div>');
+        cartaWindow.document.write('<div class="nota">* En caso de ser menor de edad, es necesario que la firma sea de la madre, padre o tutor</div>');
+        cartaWindow.document.write('<div class="imprimir"><button class="btn-print" onclick="window.print()">Imprimir</button></div>');
+        cartaWindow.document.write('<div style="margin-top:20px;font-size:10px;text-align:center;">AELCWBADC009/SAE/V6/JEGH/11042023</div>');
+        cartaWindow.document.write('</body></html>');
+        cartaWindow.document.close();
     };
 });
