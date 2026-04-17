@@ -511,6 +511,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>26P</td>
+                                            <td>TIEMPO COMPLETO</td>
+                                            <td class="text-center status-paid">PAGO CUBIERTO</td>
+                                            <td class="text-right">128.43</td>
+                                            <td>MULTIPAGOS<br>128.43</td>
+                                        </tr>
+                                        <tr>
                                             <td>26I</td>
                                             <td>TIEMPO COMPLETO</td>
                                             <td class="text-center status-paid">PAGO CUBIERTO</td>
