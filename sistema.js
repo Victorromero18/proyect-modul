@@ -1869,8 +1869,11 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     var datosKardex = [];
+    var kardexCargado = false;
 
     window.cargarKardex = function() {
+        if (kardexCargado) return;
+        
         var tbody = document.getElementById('kardex-tbody');
         if (!tbody) return;
         
@@ -1891,6 +1894,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+        kardexCargado = true;
+        console.log('Kardex cargado:', datosKardex.length, 'registros');
     };
 
     window.filtrarPorTrimestre = function() {
@@ -1903,6 +1908,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         window.cargarKardex();
+        alert('Buscando: ' + trimestre + '. Encontrados: ' + datosKardex.length);
+        
         var tbody = document.getElementById('kardex-tbody');
         tbody.innerHTML = '';
         
@@ -1940,6 +1947,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         window.cargarKardex();
+        alert('Buscando UEA: ' + uea + '. Encontrados: ' + datosKardex.length);
+        
         var tbody = document.getElementById('kardex-tbody');
         tbody.innerHTML = '';
         
@@ -1968,6 +1977,9 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.mostrarTodoKardex = function() {
+        window.cargarKardex();
+        alert('Total registros: ' + datosKardex.length);
+        
         var tbody = document.getElementById('kardex-tbody');
         if (!tbody || datosKardex.length === 0) {
             window.location.reload();
