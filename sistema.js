@@ -1213,7 +1213,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Créditos contabilizados:</span>
-                                    <span class="field-value">185</span>
+                                    <span class="field-value">223</span>
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Número de NA en tronco:</span>
@@ -1234,7 +1234,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Último trimestre con actividad académica:</span>
-                                    <span class="field-value">250</span>
+                                    <span class="field-value">26I</span>
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Último trimestre inscrito:</span>
@@ -1557,7 +1557,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Último trimestre con actividad académica:</span>
-                                    <span class="field-value">250</span>
+                                    <span class="field-value">26I</span>
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Último trimestre inscrito:</span>
