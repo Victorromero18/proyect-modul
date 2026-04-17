@@ -1570,7 +1570,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="form-grid">
                                 <div class="form-field">
                                     <span class="field-label">Créditos acumulados:</span>
-                                    <span class="field-value">185</span>
+                                    <span class="field-value">223</span>
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Número de NA en tronco:</span>
@@ -1836,7 +1836,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="indicador-item highlight">
                                     <span class="indicador-label">Créditos acumulados</span>
-                                    <span class="indicador-value">185</span>
+                                    <span class="indicador-value">223</span>
                                 </div>
                                 <div class="indicador-item">
                                     <span class="indicador-label">Duración de la carrera</span>
@@ -1854,8 +1854,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <div><strong>Área de concentración:</strong> 0</div>
                                     <div><strong>Sub-área:</strong> 0</div>
                                     <div><strong>Trimestre de ingreso:</strong> 200</div>
-                                    <div><strong>Último trimestre con actividad académica:</strong> 250</div>
-                                    <div><strong>Último trimestre inscrito:</strong> -</div>
+                                    <div><strong>Último trimestre con actividad académica:</strong> 26I</div>
+                                    <div><strong>Último trimestre inscrito:</strong> 26I</div>
                                 </div>
                             </div>
 
