@@ -61,6 +61,13 @@
         </main>
     </div>
 
+    <script>
+    // Verificar que el usuario esté logueado
+    const isLoggedIn = sessionStorage.getItem('loggedIn');
+    if (!isLoggedIn) {
+        window.location.href = 'index.html';
+    }
+</script>
     <script src="sistema.js"></script>
 </body>
 </html>

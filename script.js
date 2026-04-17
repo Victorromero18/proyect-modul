@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Script cargado');
     const loginForm = document.getElementById('loginForm');
+    console.log('Formulario encontrado:', !!loginForm);
     const logoutBtn = document.getElementById('logoutBtn');
     const userName = document.getElementById('userName');
     const menuItems = document.querySelectorAll('.menu-item:not(.logout)');
@@ -7,14 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('Formulario enviado');
             const cuenta = document.getElementById('cuenta').value;
             const password = document.getElementById('password').value;
+            console.log('Cuenta:', cuenta, 'Password:', password);
             
             if (cuenta === '2203024222' && password === 'S3cr3t0s12345.') {
+                console.log('Login exitoso');
                 sessionStorage.setItem('usuario', cuenta);
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'sistema-escolar.html';
             } else {
+                console.log('Login fallido');
                 alert('Cuenta o contraseña incorrectos');
             }
         });
