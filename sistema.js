@@ -2029,18 +2029,16 @@ document.addEventListener('DOMContentLoaded', function() {
         var trimestre = select.value;
         
         if (!trimestre) {
-            alert('Por favor seleccione un trimestre');
             return;
         }
         
         window.cargarKardex();
-        alert('Buscando: ' + trimestre + '. Encontrados: ' + datosKardex.length);
         
         var tbody = document.getElementById('kardex-tbody');
         tbody.innerHTML = '';
         
         var filtered = datosKardex.filter(function(item) {
-            return item.trimestre === trimestre;
+            return item.trimestre.trim() === trimestre;
         });
         
         filtered.forEach(function(item, index) {
@@ -2068,18 +2066,16 @@ document.addEventListener('DOMContentLoaded', function() {
         var uea = select.value;
         
         if (!uea) {
-            alert('Por favor seleccione una UEA');
             return;
         }
         
         window.cargarKardex();
-        alert('Buscando UEA: ' + uea + '. Encontrados: ' + datosKardex.length);
         
         var tbody = document.getElementById('kardex-tbody');
         tbody.innerHTML = '';
         
         var filtered = datosKardex.filter(function(item) {
-            return item.uea === uea;
+            return item.uea.trim() === uea;
         });
         
         filtered.forEach(function(item, index) {
