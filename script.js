@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const cuenta = document.getElementById('cuenta').value;
             const password = document.getElementById('password').value;
             
-            if (cuenta && password) {
+            if (cuenta === '2203024222' && password === 'S3cr3t0s12345') {
                 sessionStorage.setItem('usuario', cuenta);
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'sistema-escolar.html';
+            } else {
+                alert('Cuenta o contraseña incorrectos');
             }
         });
     }
