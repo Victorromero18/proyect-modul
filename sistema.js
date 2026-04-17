@@ -1,3 +1,131 @@
+var datosKardex = [];
+var kardexCargado = false;
+
+function cargarKardex() {
+    if (kardexCargado) return;
+    
+    var tbody = document.getElementById('kardex-tbody');
+    if (!tbody) return;
+    
+    var filas = tbody.querySelectorAll('tr');
+    datosKardex = [];
+    filas.forEach(function(fila, index) {
+        var cells = fila.querySelectorAll('td');
+        if (cells.length >= 8) {
+            datosKardex.push({
+                registro: cells[0].textContent.trim(),
+                uea: cells[1].textContent.trim(),
+                nombre: cells[2].textContent.trim(),
+                trimestre: cells[3].textContent.trim(),
+                tipoEval: cells[4].textContent.trim(),
+                calificacion: cells[5].textContent.trim(),
+                acta: cells[6].textContent.trim(),
+                creditos: cells[7].textContent.trim()
+            });
+        }
+    });
+    kardexCargado = true;
+}
+
+function filtrarPorTrimestre() {
+    var select = document.getElementById('trimestre-select');
+    var trimestre = select.value;
+    
+    if (!trimestre) {
+        alert('Por favor seleccione un trimestre');
+        return;
+    }
+    
+    cargarKardex();
+    
+    var tbody = document.getElementById('kardex-tbody');
+    tbody.innerHTML = '';
+    
+    var filtered = datosKardex.filter(function(item) {
+        return item.trimestre === trimestre;
+    });
+    
+    filtered.forEach(function(item, index) {
+        var row = document.createElement('tr');
+        row.innerHTML = '<td class="text-right">' + (index + 1) + '</td>' +
+            '<td>' + item.uea + '</td>' +
+            '<td>' + item.nombre + '</td>' +
+            '<td>' + item.trimestre + '</td>' +
+            '<td>' + item.tipoEval + '</td>' +
+            '<td class="text-right">' + item.calificacion + '</td>' +
+            '<td>' + item.acta + '</td>' +
+            '<td class="text-right">' + item.creditos + '</td>';
+        tbody.appendChild(row);
+    });
+    
+    if (filtered.length === 0) {
+        var row = document.createElement('tr');
+        row.innerHTML = '<td colspan="8" style="text-align:center;">No se encontraron registros para este trimestre</td>';
+        tbody.appendChild(row);
+    }
+}
+
+function filtrarPorUEA() {
+    var select = document.getElementById('uea-select');
+    var uea = select.value;
+    
+    if (!uea) {
+        alert('Por favor seleccione una UEA');
+        return;
+    }
+    
+    cargarKardex();
+    
+    var tbody = document.getElementById('kardex-tbody');
+    tbody.innerHTML = '';
+    
+    var filtered = datosKardex.filter(function(item) {
+        return item.uea === uea;
+    });
+    
+    filtered.forEach(function(item, index) {
+        var row = document.createElement('tr');
+        row.innerHTML = '<td class="text-right">' + (index + 1) + '</td>' +
+            '<td>' + item.uea + '</td>' +
+            '<td>' + item.nombre + '</td>' +
+            '<td>' + item.trimestre + '</td>' +
+            '<td>' + item.tipoEval + '</td>' +
+            '<td class="text-right">' + item.calificacion + '</td>' +
+            '<td>' + item.acta + '</td>' +
+            '<td class="text-right">' + item.creditos + '</td>';
+        tbody.appendChild(row);
+    });
+    
+    if (filtered.length === 0) {
+        var row = document.createElement('tr');
+        row.innerHTML = '<td colspan="8" style="text-align:center;">No se encontraron registros para esta UEA</td>';
+        tbody.appendChild(row);
+    }
+}
+
+function mostrarTodoKardex() {
+    cargarKardex();
+    
+    var tbody = document.getElementById('kardex-tbody');
+    if (!tbody || datosKardex.length === 0) {
+        window.location.reload();
+        return;
+    }
+    tbody.innerHTML = '';
+    datosKardex.forEach(function(item, index) {
+        var row = document.createElement('tr');
+        row.innerHTML = '<td class="text-right">' + (index + 1) + '</td>' +
+            '<td>' + item.uea + '</td>' +
+            '<td>' + item.nombre + '</td>' +
+            '<td>' + item.trimestre + '</td>' +
+            '<td>' + item.tipoEval + '</td>' +
+            '<td class="text-right">' + item.calificacion + '</td>' +
+            '<td>' + item.acta + '</td>' +
+            '<td class="text-right">' + item.creditos + '</td>';
+        tbody.appendChild(row);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuItems = document.querySelectorAll('.menu-item[data-page]');
     const contentContainer = document.getElementById('contentContainer');
@@ -1977,8 +2105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.mostrarTodoKardex = function() {
-        window.cargarKardex();
-        alert('Total registros: ' + datosKardex.length);
+        cargarKardex();
         
         var tbody = document.getElementById('kardex-tbody');
         if (!tbody || datosKardex.length === 0) {
