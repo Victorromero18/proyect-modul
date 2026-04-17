@@ -1492,8 +1492,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <span><strong>Apellido Materno:</strong> PEREZ</span>
                                 <span><strong>Nombre(s):</strong> VICTOR MIGUEL</span>
                             </div>
-                            <div class="date-display">08 - Abril - 2026 19:39</div>
-                        </div>
 
                         <div class="tabs">
                             <button class="tab active" data-tab="datos-academicos-lc">Datos Académicos</button>
