@@ -112,31 +112,64 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <label class="radio-label">
                                     <input type="radio" name="orden" value="trimestre"> Por Trimestre
                                 </label>
-                                <button class="btn-control">Todo Kardex</button>
+                                <button class="btn-control" onclick="mostrarTodoKardex()">Todo Kardex</button>
                             </div>
                             <div class="controls-right">
                                 <div class="control-row">
-                                    <select class="select-control">
-                                        <option>Seleccionar...</option>
-                                        <option>26I</option>
-                                        <option>25O</option>
-                                        <option>25I</option>
+                                    <select class="select-control" id="trimestre-select">
+                                        <option value="">Seleccionar...</option>
+                                        <option value="26I">26I</option>
+                                        <option value="25O">25O</option>
+                                        <option value="25P">25P</option>
+                                        <option value="25I">25I</option>
+                                        <option value="24O">24O</option>
+                                        <option value="24P">24P</option>
+                                        <option value="24I">24I</option>
+                                        <option value="23O">23O</option>
+                                        <option value="23I">23I</option>
+                                        <option value="22O">22O</option>
+                                        <option value="22P">22P</option>
+                                        <option value="22I">22I</option>
+                                        <option value="21O">21O</option>
+                                        <option value="21P">21P</option>
+                                        <option value="21I">21I</option>
+                                        <option value="20O">20O</option>
                                     </select>
-                                    <button class="btn-control">Consulta x Trim.</button>
+                                    <button class="btn-control" onclick="filtrarPorTrimestre()">Consulta x Trim.</button>
                                 </div>
                                 <div class="control-row">
-                                    <select class="select-control">
-                                        <option>Seleccionar UEA...</option>
-                                        <option>2211001</option>
-                                        <option>2211002</option>
-                                        <option>2211003</option>
+                                    <select class="select-control" id="uea-select">
+                                        <option value="">Seleccionar UEA...</option>
+                                        <option value="4000005">4000005</option>
+                                        <option value="4000007">4000007</option>
+                                        <option value="4000008">4000008</option>
+                                        <option value="4210011">4210011</option>
+                                        <option value="4210015">4210015</option>
+                                        <option value="4210020">4210020</option>
+                                        <option value="4210023">4210023</option>
+                                        <option value="4210044">4210044</option>
+                                        <option value="4210053">4210053</option>
+                                        <option value="4210081">4210081</option>
+                                        <option value="4210082">4210082</option>
+                                        <option value="4211019">4211019</option>
+                                        <option value="4211066">4211066</option>
+                                        <option value="4211067">4211067</option>
+                                        <option value="4211080">4211080</option>
+                                        <option value="4211081">4211081</option>
+                                        <option value="4211082">4211082</option>
+                                        <option value="4212013">4212013</option>
+                                        <option value="4502002">4502002</option>
+                                        <option value="4502016">4502016</option>
+                                        <option value="4502017">4502017</option>
+                                        <option value="4600000">4600000</option>
+                                        <option value="4600002">4600002</option>
                                     </select>
-                                    <button class="btn-control">Consulta x UEA</button>
+                                    <button class="btn-control" onclick="filtrarPorUEA()">Consulta x UEA</button>
                                 </div>
                             </div>
                         </div>
 
-                        <table class="kardex-table">
+                        <table class="kardex-table" id="kardex-table">
                             <thead>
                                 <tr>
                                     <th>Registro</th>
@@ -149,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <th>Créditos</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="kardex-tbody">
                                 <tr>
                                     <td class="text-right">1</td>
                                     <td>4000005</td>
@@ -1833,5 +1866,125 @@ document.addEventListener('DOMContentLoaded', function() {
         cartaWindow.document.write('<div style="margin-top:20px;font-size:10px;text-align:center;">AELCWBADC009/SAE/V6/JEGH/11042023</div>');
         cartaWindow.document.write('</body></html>');
         cartaWindow.document.close();
+    };
+
+    var datosKardex = [];
+
+    window.cargarKardex = function() {
+        var tbody = document.getElementById('kardex-tbody');
+        if (!tbody) return;
+        
+        var filas = tbody.querySelectorAll('tr');
+        datosKardex = [];
+        filas.forEach(function(fila, index) {
+            var cells = fila.querySelectorAll('td');
+            if (cells.length >= 8) {
+                datosKardex.push({
+                    registro: cells[0].textContent.trim(),
+                    uea: cells[1].textContent.trim(),
+                    nombre: cells[2].textContent.trim(),
+                    trimestre: cells[3].textContent.trim(),
+                    tipoEval: cells[4].textContent.trim(),
+                    calificacion: cells[5].textContent.trim(),
+                    acta: cells[6].textContent.trim(),
+                    creditos: cells[7].textContent.trim()
+                });
+            }
+        });
+    };
+
+    window.filtrarPorTrimestre = function() {
+        var select = document.getElementById('trimestre-select');
+        var trimestre = select.value;
+        
+        if (!trimestre) {
+            alert('Por favor seleccione un trimestre');
+            return;
+        }
+        
+        window.cargarKardex();
+        var tbody = document.getElementById('kardex-tbody');
+        tbody.innerHTML = '';
+        
+        var filtered = datosKardex.filter(function(item) {
+            return item.trimestre === trimestre;
+        });
+        
+        filtered.forEach(function(item, index) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td class="text-right">' + (index + 1) + '</td>' +
+                '<td>' + item.uea + '</td>' +
+                '<td>' + item.nombre + '</td>' +
+                '<td>' + item.trimestre + '</td>' +
+                '<td>' + item.tipoEval + '</td>' +
+                '<td class="text-right">' + item.calificacion + '</td>' +
+                '<td>' + item.acta + '</td>' +
+                '<td class="text-right">' + item.creditos + '</td>';
+            tbody.appendChild(row);
+        });
+        
+        if (filtered.length === 0) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td colspan="8" style="text-align:center;">No se encontraron registros para este trimestre</td>';
+            tbody.appendChild(row);
+        }
+    };
+
+    window.filtrarPorUEA = function() {
+        var select = document.getElementById('uea-select');
+        var uea = select.value;
+        
+        if (!uea) {
+            alert('Por favor seleccione una UEA');
+            return;
+        }
+        
+        window.cargarKardex();
+        var tbody = document.getElementById('kardex-tbody');
+        tbody.innerHTML = '';
+        
+        var filtered = datosKardex.filter(function(item) {
+            return item.uea === uea;
+        });
+        
+        filtered.forEach(function(item, index) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td class="text-right">' + (index + 1) + '</td>' +
+                '<td>' + item.uea + '</td>' +
+                '<td>' + item.nombre + '</td>' +
+                '<td>' + item.trimestre + '</td>' +
+                '<td>' + item.tipoEval + '</td>' +
+                '<td class="text-right">' + item.calificacion + '</td>' +
+                '<td>' + item.acta + '</td>' +
+                '<td class="text-right">' + item.creditos + '</td>';
+            tbody.appendChild(row);
+        });
+        
+        if (filtered.length === 0) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td colspan="8" style="text-align:center;">No se encontraron registros para esta UEA</td>';
+            tbody.appendChild(row);
+        }
+    };
+
+    window.mostrarTodoKardex = function() {
+        var tbody = document.getElementById('kardex-tbody');
+        if (!tbody || datosKardex.length === 0) {
+            window.location.reload();
+            return;
+        }
+        tbody.innerHTML = '';
+        datosKardex.forEach(function(item, index) {
+            var row = document.createElement('tr');
+            row.innerHTML = '<td class="text-right">' + (index + 1) + '</td>' +
+                '<td>' + item.uea + '</td>' +
+                '<td>' + item.nombre + '</td>' +
+                '<td>' + item.trimestre + '</td>' +
+                '<td>' + item.tipoEval + '</td>' +
+                '<td class="text-right">' + item.calificacion + '</td>' +
+                '<td>' + item.acta + '</td>' +
+                '<td class="text-right">' + item.creditos + '</td>';
+            tbody.appendChild(row);
+        });
     };
 });
