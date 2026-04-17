@@ -266,29 +266,29 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <div class="control-row">
                                     <select class="select-control" id="uea-select">
                                         <option value="">Seleccionar UEA...</option>
-                                        <option value="4000005">4000005</option>
-                                        <option value="4000007">4000007</option>
-                                        <option value="4000008">4000008</option>
-                                        <option value="4210011">4210011</option>
-                                        <option value="4210015">4210015</option>
-                                        <option value="4210020">4210020</option>
-                                        <option value="4210023">4210023</option>
-                                        <option value="4210044">4210044</option>
-                                        <option value="4210053">4210053</option>
-                                        <option value="4210081">4210081</option>
-                                        <option value="4210082">4210082</option>
-                                        <option value="4211019">4211019</option>
-                                        <option value="4211066">4211066</option>
-                                        <option value="4211067">4211067</option>
-                                        <option value="4211080">4211080</option>
-                                        <option value="4211081">4211081</option>
-                                        <option value="4211082">4211082</option>
-                                        <option value="4212013">4212013</option>
-                                        <option value="4502002">4502002</option>
-                                        <option value="4502016">4502016</option>
-                                        <option value="4502017">4502017</option>
-                                        <option value="4600000">4600000</option>
-                                        <option value="4600002">4600002</option>
+                                        <option value="4000005">INTRODUCCION AL PENSAMIENTO MATEMATICO</option>
+                                        <option value="4000007">SEMINARIO SOBRE SUSTENTABILIDAD</option>
+                                        <option value="4000008">TALLER DE LITERACIDAD ACADEMICA</option>
+                                        <option value="4210011">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</option>
+                                        <option value="4210015">FUNDAMENTOS DE CONTABILIDAD</option>
+                                        <option value="4210020">FUNDAMENTOS DE CONTABILIDAD DE COSTOS</option>
+                                        <option value="4210023">ADMINISTRACION FINANCIERA I</option>
+                                        <option value="4210044">GESTION DEL CONOCIMIENTO Y APRENDIZAJE ORGANIZACIONAL</option>
+                                        <option value="4210053">CULTURAS, CONFLICTOS Y ORGANIZACION</option>
+                                        <option value="4210081">DERECHO DE LOS RECURSOS NATURALES</option>
+                                        <option value="4210082">DERECHOS HUMANOS</option>
+                                        <option value="4211019">NUEVAS FORMAS DE ORGANIZACION DE LA SOCIEDAD CIVIL</option>
+                                        <option value="4211066">SEMINARIO DE ECONOMIA POLITICA</option>
+                                        <option value="4211067">SEMINARIO: GLOBALIZACION</option>
+                                        <option value="4211080">ETICA</option>
+                                        <option value="4211081">FILOSOFIA POLITICA</option>
+                                        <option value="4211082">FILOSOFIA SOCIAL</option>
+                                        <option value="4212013">PROCESOS MUNDIALES CONTEMPORANEOS</option>
+                                        <option value="4502002">HISTORIA Y CULTURA DE LA COMPUTACION</option>
+                                        <option value="4502016">LABORATORIO TEMATICO III</option>
+                                        <option value="4502017">LABORATORIO TEMATICO IV</option>
+                                        <option value="4600000">TALLER DE MATEMATICAS</option>
+                                        <option value="4600002">MATEMATICAS DISCRETAS II</option>
                                     </select>
                                     <button class="btn-control" onclick="filtrarPorUEA()">Consulta x UEA</button>
                                 </div>
