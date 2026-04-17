@@ -1465,12 +1465,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <td style="padding:6px; border:1px solid #3498db;">132</td>
                                             <td style="padding:6px; border:1px solid #3498db;"></td>
                                             <td style="padding:6px; border:1px solid #3498db; font-weight:bold;">491</td>
-                                            <td style="padding:6px; border:1px solid #3498db;">185</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">223</td>
                                             <td style="padding:6px; border:1px solid #3498db;">0</td>
-                                            <td style="padding:6px; border:1px solid #3498db;">185</td>
-                                            <td style="padding:6px; border:1px solid #3498db;">174</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">223</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">136</td>
                                             <td style="padding:6px; border:1px solid #3498db;">100</td>
-                                            <td style="padding:6px; border:1px solid #3498db;">306</td>
+                                            <td style="padding:6px; border:1px solid #3498db;">268</td>
                                         </tr>
                                     </tbody>
                                 </table>
