@@ -637,6 +637,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>CSC20250254675</td>
+                                            <td>EVALUACIONES DE RECUPERACIÓN</td>
+                                            <td class="text-right">4.20</td>
+                                            <td>08/04/2026 12:16:25</td>
+                                            <td></td>
+                                            <td>08/04/2026 16:31:40</td>
+                                            <td>26I</td>
+                                            <td>Si</td>
+                                            <td class="status-paid">PAGADO</td>
+                                        </tr>
+                                        <tr>
                                             <td>CSC2025028441</td>
                                             <td>EVALUACIONES DE RECUPERACIÓN</td>
                                             <td class="text-right">2.20</td>
