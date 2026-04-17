@@ -286,6 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <option value="4600011">PROBABILIDAD Y ESTADISTICA</option>
                                         <option value="4600012">ARQUITECTURA DE COMPUTADORAS</option>
                                         <option value="4600013">ANALISIS Y DISEÑO DE ALGORITMOS</option>
+                                        <option value="4603050">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</option>
                                         <option value="4600017">SISTEMAS OPERATIVOS</option>
                                         <option value="4210011">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</option>
                                         <option value="4210013">COMPORTAMIENTO HUMANO EN LAS ORGANIZACIONES I</option>
@@ -640,6 +641,16 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <td class="text-right">S</td>
                                     <td>226806751</td>
                                     <td class="text-right">12</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">34</td>
+                                    <td>4603050</td>
+                                    <td>FUNDAMENTOS DE TEORIA ADMINISTRATIVA</td>
+                                    <td>26I</td>
+                                    <td>GLO.</td>
+                                    <td class="text-right">S</td>
+                                    <td>226806472</td>
+                                    <td class="text-right">8</td>
                                 </tr>
                             </tbody>
                         </table>
