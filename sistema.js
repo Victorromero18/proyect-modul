@@ -276,6 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <option value="4502007">LABORATORIO TEMATICO I</option>
                                         <option value="4502015">LABORATORIO TEMATICO II</option>
                                         <option value="4502016">LABORATORIO TEMATICO III</option>
+                                        <option value="4502017">LABORATORIO TEMATICO IV</option>
                                         <option value="4600000">TALLER DE MATEMATICAS</option>
                                         <option value="4600001">MATEMATICAS DISCRETAS I</option>
                                         <option value="4600002">MATEMATICAS DISCRETAS II</option>
@@ -618,6 +619,16 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <td class="text-right">MB</td>
                                     <td>226806701</td>
                                     <td class="text-right">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">32</td>
+                                    <td>4502017</td>
+                                    <td>LABORATORIO TEMATICO IV</td>
+                                    <td>26I</td>
+                                    <td>GLO.</td>
+                                    <td class="text-right">MB</td>
+                                    <td>226805179</td>
+                                    <td class="text-right">10</td>
                                 </tr>
                             </tbody>
                         </table>
