@@ -269,26 +269,25 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <option value="4000005">INTRODUCCION AL PENSAMIENTO MATEMATICO</option>
                                         <option value="4000007">SEMINARIO SOBRE SUSTENTABILIDAD</option>
                                         <option value="4000008">TALLER DE LITERACIDAD ACADEMICA</option>
-                                        <option value="4210011">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</option>
-                                        <option value="4210015">FUNDAMENTOS DE CONTABILIDAD</option>
-                                        <option value="4210020">FUNDAMENTOS DE CONTABILIDAD DE COSTOS</option>
-                                        <option value="4210023">ADMINISTRACION FINANCIERA I</option>
-                                        <option value="4210044">GESTION DEL CONOCIMIENTO Y APRENDIZAJE ORGANIZACIONAL</option>
-                                        <option value="4210053">CULTURAS, CONFLICTOS Y ORGANIZACION</option>
-                                        <option value="4210081">DERECHO DE LOS RECURSOS NATURALES</option>
-                                        <option value="4210082">DERECHOS HUMANOS</option>
-                                        <option value="4211019">NUEVAS FORMAS DE ORGANIZACION DE LA SOCIEDAD CIVIL</option>
-                                        <option value="4211066">SEMINARIO DE ECONOMIA POLITICA</option>
-                                        <option value="4211067">SEMINARIO: GLOBALIZACION</option>
-                                        <option value="4211080">ETICA</option>
-                                        <option value="4211081">FILOSOFIA POLITICA</option>
-                                        <option value="4211082">FILOSOFIA SOCIAL</option>
-                                        <option value="4212013">PROCESOS MUNDIALES CONTEMPORANEOS</option>
+                                        <option value="4502001">SEMINARIO DE COMUNICACION, DISEÑO Y TECNOLOGIAS DE LA INFOR.</option>
                                         <option value="4502002">HISTORIA Y CULTURA DE LA COMPUTACION</option>
+                                        <option value="4502003">LOGICA Y PROGRAMACION LOGICA</option>
+                                        <option value="4502004">PROGRAMACION DE WEB ESTATICO</option>
+                                        <option value="4502007">LABORATORIO TEMATICO I</option>
+                                        <option value="4502015">LABORATORIO TEMATICO II</option>
                                         <option value="4502016">LABORATORIO TEMATICO III</option>
-                                        <option value="4502017">LABORATORIO TEMATICO IV</option>
                                         <option value="4600000">TALLER DE MATEMATICAS</option>
+                                        <option value="4600001">MATEMATICAS DISCRETAS I</option>
                                         <option value="4600002">MATEMATICAS DISCRETAS II</option>
+                                        <option value="4600005">PROGRAMACION ESTRUCTURADA</option>
+                                        <option value="4600006">PROGRAMACION ORIENTADA A OBJETOS</option>
+                                        <option value="4600009">ESTRUCTURA DE DATOS</option>
+                                        <option value="4600012">ARQUITECTURA DE COMPUTADORAS</option>
+                                        <option value="4600017">SISTEMAS OPERATIVOS</option>
+                                        <option value="4210011">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</option>
+                                        <option value="4210013">COMPORTAMIENTO HUMANO EN LAS ORGANIZACIONES I</option>
+                                        <option value="4210018">COMPORTAMIENTO HUMANO EN LAS ORGANIZACIONES II</option>
+                                        <option value="4210025">GESTION DE SISTEMAS DE INFORMACION Y COMUNICACION</option>
                                     </select>
                                     <button class="btn-control" onclick="filtrarPorUEA()">Consulta x UEA</button>
                                 </div>
