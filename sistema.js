@@ -282,6 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <option value="4600005">PROGRAMACION ESTRUCTURADA</option>
                                         <option value="4600006">PROGRAMACION ORIENTADA A OBJETOS</option>
                                         <option value="4600009">ESTRUCTURA DE DATOS</option>
+                                        <option value="4600011">PROBABILIDAD Y ESTADISTICA</option>
                                         <option value="4600012">ARQUITECTURA DE COMPUTADORAS</option>
                                         <option value="4600017">SISTEMAS OPERATIVOS</option>
                                         <option value="4210011">FUNDAMENTOS DE TEORIA ADMINISTRATIVA</option>
@@ -607,6 +608,16 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <td class="text-right">MB</td>
                                     <td>410207161</td>
                                     <td class="text-right">10</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">31</td>
+                                    <td>4600011</td>
+                                    <td>PROBABILIDAD Y ESTADISTICA</td>
+                                    <td>26I</td>
+                                    <td>GLO.</td>
+                                    <td class="text-right">MB</td>
+                                    <td>226806701</td>
+                                    <td class="text-right">8</td>
                                 </tr>
                             </tbody>
                         </table>
