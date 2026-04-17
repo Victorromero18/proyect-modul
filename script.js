@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (cuenta && password) {
                 sessionStorage.setItem('usuario', cuenta);
                 sessionStorage.setItem('loggedIn', 'true');
-                window.location.href = 'sistema-escolar';
+                window.location.href = 'sistema-escolar.html';
             }
         });
     }
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             sessionStorage.removeItem('usuario');
             sessionStorage.removeItem('loggedIn');
-            window.location.href = 'index';
+            window.location.href = 'index.html';
         });
     }
 
