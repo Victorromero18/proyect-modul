@@ -1387,9 +1387,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </thead>
                                     <tbody>
                                         <tr style="background:#f9f9f9;">
-                                            <td style="padding:5px; border:1px solid #3498db; text-align:center;">185</td>
+                                            <td style="padding:5px; border:1px solid #3498db; text-align:center;">223</td>
                                             <td style="padding:5px; border:1px solid #3498db; text-align:center;">459</td>
-                                            <td style="padding:5px; border:1px solid #3498db; text-align:center;">40.30%</td>
+                                            <td style="padding:5px; border:1px solid #3498db; text-align:center;">48.58%</td>
                                         </tr>
                                     </tbody>
                                 </table>
