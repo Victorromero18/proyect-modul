@@ -323,14 +323,14 @@ body {
 .kardex-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 11px;
-    margin-bottom: 20px;
+    font-size: 10px;
+    margin-bottom: 15px;
 }
 
 .kardex-table th,
 .kardex-table td {
     border: 1px solid #ddd;
-    padding: 6px 8px;
+    padding: 3px 5px;
     text-align: left;
 }
 
