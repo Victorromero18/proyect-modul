@@ -351,6 +351,7 @@ body {
 
 .kardex-table tbody td:nth-child(3) {
     text-align: left;
+    font-size: 8px;
 }
 
 .kardex-table .text-right {
