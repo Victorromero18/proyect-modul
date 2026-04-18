@@ -1028,7 +1028,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </div>
                                     <div class="form-field">
                                         <span class="field-label">Colonia:</span>
-                                        <span class="field-value">Santiago Yanhuitlalpan</span>
+                                        <span class="field-value">Santiago Yancuitlalpan</span>
                                     </div>
                                     <div class="form-field">
                                         <span class="field-label">Código:</span>
