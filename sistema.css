@@ -331,7 +331,7 @@ body {
 .kardex-table td {
     border: 1px solid #ddd;
     padding: 2px 3px;
-    text-align: left;
+    text-align: center;
 }
 
 .kardex-table thead th {
