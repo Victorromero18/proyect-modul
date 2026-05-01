@@ -652,6 +652,16 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <td>226806472</td>
                                     <td class="text-right">8</td>
                                 </tr>
+                                <tr>
+                                    <td class="text-right">35</td>
+                                    <td>4600002</td>
+                                    <td>MATEMATICAS DISCRETAS II</td>
+                                    <td>26I</td>
+                                    <td>REC.</td>
+                                    <td class="text-right">B</td>
+                                    <td>410152439</td>
+                                    <td class="text-right">8</td>
+                                </tr>
                             </tbody>
                         </table>
 
