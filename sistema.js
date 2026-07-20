@@ -244,6 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <div class="control-row">
                                     <select class="select-control" id="trimestre-select">
                                         <option value="">Seleccionar...</option>
+                                        <option value="26P">26P</option>
                                         <option value="26I">26I</option>
                                         <option value="25O">25O</option>
                                         <option value="25P">25P</option>
@@ -292,6 +293,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <option value="4210013">COMPORTAMIENTO HUMANO EN LAS ORGANIZACIONES I</option>
                                         <option value="4210018">COMPORTAMIENTO HUMANO EN LAS ORGANIZACIONES II</option>
                                         <option value="4210025">GESTION DE SISTEMAS DE INFORMACION Y COMUNICACION</option>
+                                        <option value="4640502">BASE DE DATOS</option>
+                                        <option value="2602006">SISTEMAS DISTRIBUIDOS</option>
+                                        <option value="4525803">SEMINARIO DE SISTEMAS DE INFORMACION I</option>
                                     </select>
                                     <button class="btn-control" onclick="filtrarPorUEA()">Consulta x UEA</button>
                                 </div>
@@ -660,6 +664,36 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <td>REC.</td>
                                     <td class="text-right">B</td>
                                     <td>410152439</td>
+                                    <td class="text-right">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">36</td>
+                                    <td>4640502</td>
+                                    <td>BASE DE DATOS</td>
+                                    <td>26P</td>
+                                    <td>GLO.</td>
+                                    <td class="text-right">B</td>
+                                    <td>412252439</td>
+                                    <td class="text-right">10</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">37</td>
+                                    <td>2602006</td>
+                                    <td>SISTEMAS DISTRIBUIDOS</td>
+                                    <td>26P</td>
+                                    <td>GLO.</td>
+                                    <td class="text-right">MB</td>
+                                    <td>41047878</td>
+                                    <td class="text-right">8</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">38</td>
+                                    <td>4525803</td>
+                                    <td>SEMINARIO DE SISTEMAS DE INFORMACION I</td>
+                                    <td>26P</td>
+                                    <td>GLO.</td>
+                                    <td class="text-right">MB</td>
+                                    <td>410619288</td>
                                     <td class="text-right">8</td>
                                 </tr>
                             </tbody>
