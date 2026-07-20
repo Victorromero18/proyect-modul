@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/sistema-escolar", "destination": "/sistema-escolar.html" },
+    { "source": "/index", "destination": "/index.html" }
+  ]
+}
