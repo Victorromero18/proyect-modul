@@ -1903,8 +1903,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <div><strong>Área de concentración:</strong> 0</div>
                                     <div><strong>Sub-área:</strong> 0</div>
                                     <div><strong>Trimestre de ingreso:</strong> 200</div>
-                                    <div><strong>Último trimestre con actividad académica:</strong> 26I</div>
-                                    <div><strong>Último trimestre inscrito:</strong> 26I</div>
+                                    <div><strong>Último trimestre con actividad académica:</strong> 26P</div>
+                                    <div><strong>Último trimestre inscrito:</strong> 26P</div>
                                 </div>
                             </div>
 
