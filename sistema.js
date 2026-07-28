@@ -1682,8 +1682,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="doc-info">
                                     <div><strong>Matrícula:</strong> 2203024222</div>
-                                    <div><strong>Trimestre:</strong> 26I</div>
-                                    <div><strong>Fecha de expedición:</strong> 8 de Abril del 2026</div>
+                                    <div><strong>Trimestre:</strong> 26P</div>
+                                    <div><strong>Fecha de expedición:</strong> 29 de Julio del 2026</div>
                                 </div>
                             </div>
 
