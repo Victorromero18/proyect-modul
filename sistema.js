@@ -1285,15 +1285,15 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Último trimestre con actividad académica:</span>
-                                    <span class="field-value">26I</span>
+                                    <span class="field-value">26P</span>
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Último trimestre inscrito:</span>
-                                    <span class="field-value">26I</span>
+                                    <span class="field-value">26P</span>
                                 </div>
                                 <div class="form-field">
                                     <span class="field-label">Promedio del último trimestre:</span>
-                                    <span class="field-value">8.50</span>
+                                    <span class="field-value">9.00</span>
                                 </div>
                             </div>
 
