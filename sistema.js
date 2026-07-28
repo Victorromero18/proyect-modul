@@ -1984,7 +1984,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="info-item">
                                     <label>Trimestre del proceso:</label>
-                                    <input type="text" value="26I" disabled>
+                                    <input type="text" value="26P" disabled>
                                 </div>
                                 <div class="info-item">
                                     <label>Matrícula:</label>
@@ -1993,7 +1993,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
 
                             <div class="alert-message">
-                                El proceso ya no está activo, la fecha límite fue el 20/2/2026
+                                El proceso ya no está activo, la fecha límite fue el 12/06/2026
                             </div>
 
                             <div class="folio-text">
