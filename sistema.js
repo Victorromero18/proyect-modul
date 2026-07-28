@@ -996,7 +996,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                             <div class="data-box">
                                 <span class="data-label">Trimestre actual:</span>
-                                <span class="data-value">26I</span>
+                                <span class="data-value">26P</span>
                             </div>
                         </div>
 
